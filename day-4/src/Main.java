@@ -15,13 +15,12 @@ public class Main {
         ArrayList<Integer> winningNumbers = new ArrayList<>();
         ArrayList<Integer> myNumbers = new ArrayList<>();
         int solution = 0;
-        int fix = 2;
         for (String s : input) {
             int hits = 0;
-            for (int j = 10 - fix; j < 40 - fix; j = j + 3) {
+            for (int j = 10; j < 40; j = j + 3) {
                 winningNumbers.add(Integer.valueOf(s.substring(j, j + 2).replaceAll("\\s", "")));
             }
-            for (int k = 42 - fix; k < s.length(); k = k + 3) {
+            for (int k = 42; k < s.length(); k = k + 3) {
                 myNumbers.add(Integer.valueOf(s.substring(k, k + 2).replaceAll("\\s", "")));
             }
             for (Integer winningNumber : winningNumbers) {
@@ -44,14 +43,13 @@ public class Main {
         ArrayList<Integer> myNumbers = new ArrayList<>();
         int[] copies = new int[input.size()];
         int solution = 0;
-        int i = 0;
-        for (String s : input) {
+        for (int i = 0; i < input.size(); i ++) {
             int hits = 0;
             for (int j = 10; j < 40; j = j + 3) {
-                winningNumbers.add(Integer.valueOf(s.substring(j, j + 2).replaceAll("\\s", "")));
+                winningNumbers.add(Integer.valueOf(input.get(i).substring(j, j + 2).replaceAll("\\s", "")));
             }
-            for (int k = 42; k < s.length(); k = k + 3) {
-                myNumbers.add(Integer.valueOf(s.substring(k, k + 2).replaceAll("\\s", "")));
+            for (int k = 42; k < input.get(i).length(); k = k + 3) {
+                myNumbers.add(Integer.valueOf(input.get(i).substring(k, k + 2).replaceAll("\\s", "")));
             }
             for (Integer winningNumber : winningNumbers) {
                 if (myNumbers.contains(winningNumber)) {
@@ -65,20 +63,14 @@ public class Main {
                 }
             }
 
-            for(int kk = 0; kk < copies.length; kk ++){
-                System.out.println( kk + 1 + " " + copies[kk]);
-            }
-
             winningNumbers.clear();
             myNumbers.clear();
-            i++;
+
         }
         for(int m = 0; m < input.size(); m ++){
             solution = solution + copies[m];
         }
-        for(int kk = 0; kk < copies.length; kk ++){
-            System.out.println( kk + " " + copies[kk]);
-        }
+
         return solution + input.size();
     }
 

@@ -12,9 +12,11 @@ public class Main {
         System.out.println(part2(myInput));
     }
     public static int part1(List<String> input){
+
         ArrayList<Integer> winningNumbers = new ArrayList<>();
         ArrayList<Integer> myNumbers = new ArrayList<>();
         int solution = 0;
+
         for (String s : input) {
             int hits = 0;
             for (int j = 10; j < 40; j = j + 3) {
@@ -34,15 +36,16 @@ public class Main {
             winningNumbers.clear();
             myNumbers.clear();
         }
-
         return solution;
     }
 
     public static int part2(List<String> input){
+
         ArrayList<Integer> winningNumbers = new ArrayList<>();
         ArrayList<Integer> myNumbers = new ArrayList<>();
         int[] copies = new int[input.size()];
         int solution = 0;
+
         for (int i = 0; i < input.size(); i ++) {
             int hits = 0;
             for (int j = 10; j < 40; j = j + 3) {
@@ -65,16 +68,12 @@ public class Main {
 
             winningNumbers.clear();
             myNumbers.clear();
-
         }
         for(int m = 0; m < input.size(); m ++){
             solution = solution + copies[m];
         }
-
         return solution + input.size();
     }
-
-
 
     public static List<String> readFile(String file) {
         Path filePath = Paths.get(file);

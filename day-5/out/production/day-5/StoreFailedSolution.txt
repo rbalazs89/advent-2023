@@ -1,0 +1,349 @@
+public static long part1 (List<String> input){
+
+        long[] seeds = {
+                1636419363L, 608824189L, 3409451394L, 227471750L, 12950548L,
+                91466703L, 1003260108L, 224873703L, 440703838L, 191248477L,
+                634347552L, 275264505L, 3673953799L, 67839674L, 2442763622L,
+                237071609L, 3766524590L, 426344831L, 1433781343L, 153722422L
+        };
+
+        long[] seedToSoil = {
+                2067746708L, 2321931404L, 124423068L,
+                2774831547L, 3357841131L, 95865403L,
+                3776553292L, 3323317283L, 34523848L,
+                4167907733L, 3453706534L, 116376261L,
+                1190847573L, 767701596L, 554806188L,
+                2870696950L, 1975607604L, 173919437L,
+                1980384731L, 2612856575L, 87361977L,
+                3380570559L, 2987564153L, 335753130L,
+                3044616387L, 2451131599L, 21188806L,
+                3909556885L, 2167390152L, 154541252L,
+                3811077140L, 2149527041L, 17863111L,
+                4077167815L, 3804196813L, 90739918L,
+                2528751611L, 4222771775L, 72195521L,
+                4064098137L, 3894936731L, 13069678L,
+                4284283994L, 2700218552L, 10683302L,
+                2468832075L, 2472320405L, 59919536L,
+                3716323689L, 3570082795L, 60229603L,
+                1085396685L, 662250708L, 105450888L,
+                1030174777L, 1322507784L, 22912174L,
+                1975607604L, 2446354472L, 4777127L,
+                3828940251L, 2532239941L, 80616634L,
+                584992388L, 1930412346L, 7315040L,
+                592307428L, 0L, 437867349L,
+                1745653761L, 437867349L, 224383359L,
+                0L, 1345419958L, 584992388L,
+                2192169776L, 2710901854L, 276662299L,
+                2600947132L, 3630312398L, 173884415L,
+                1053086951L, 1937727386L, 32309734L,
+                3065805193L, 3908006409L, 314765366L
+        };
+
+        HashMap<Long, Long> seedToSoilMap = new HashMap<>();
+        for (int i = 0; i < seedToSoil.length; i = i + 3) {
+            long seed = seedToSoil[i];
+            long soil = seedToSoil[i + 1];
+            long count = seedToSoil[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                seedToSoilMap.put(soil + j, seed + j);
+            }
+        }
+
+        long[] soilToFertilizer = {
+                4148533839L, 3658735071L, 146433457L,
+                656556737L, 471425735L, 68165409L,
+                751630557L, 539591144L, 462446129L,
+                724722146L, 1002037273L, 26908411L,
+                0L, 24799538L, 226917727L,
+                4049709448L, 3143711443L, 98824391L,
+                412048729L, 251717265L, 219708470L,
+                3321838617L, 2645077606L, 72145759L,
+                3869354568L, 2464722726L, 180354880L,
+                2044900648L, 1380852911L, 42721698L,
+                226917727L, 1028945684L, 185131002L,
+                3111204505L, 2717223365L, 210634112L,
+                2129227343L, 1423574609L, 981977162L,
+                1380852911L, 2927857477L, 215853966L,
+                3393984376L, 2405551771L, 59170955L,
+                3453155331L, 3242535834L, 416199237L,
+                1596706877L, 3805168528L, 448193771L,
+                2087622346L, 4253362299L, 41604997L,
+                631757199L, 0L, 24799538L
+        };
+
+        HashMap<Long, Long> soilToFertilizerMap = new HashMap<>();
+        for (int i = 0; i < soilToFertilizer.length; i = i + 3) {
+            long seed = soilToFertilizer[i];
+            long soil = soilToFertilizer[i + 1];
+            long count = soilToFertilizer[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                soilToFertilizerMap.put(soil + j, seed + j);
+            }
+        }
+
+        long[] fertilizerToWater= {
+                2679101382L, 2898500255L, 208361454L,
+                3672966601L, 3700867560L, 107718031L,
+                1764241275L, 4242224976L, 41519499L,
+                1018987051L, 346629037L, 49456831L,
+                518817716L, 396085868L, 3722249L,
+                1224466235L, 306138732L, 40490305L,
+                1068679130L, 947256497L, 122607155L,
+                1328820253L, 625833852L, 156797976L,
+                222363356L, 782631828L, 128136603L,
+                4106081288L, 2497628211L, 144953761L,
+                2887462836L, 1577782207L, 70654427L,
+                2453719866L, 2077230479L, 225381516L,
+                2177283137L, 3415053348L, 9638645L,
+                1485618229L, 910768431L, 36488066L,
+                1805760774L, 2833622399L, 32168430L,
+                482104460L, 0L, 36713256L,
+                4065926174L, 2480721173L, 16907038L,
+                118194361L, 213050410L, 93088322L,
+                1869091498L, 3106861709L, 308191639L,
+                1068443882L, 399808117L, 235248L,
+                2958117263L, 3926610020L, 315614956L,
+                1577782207L, 2324396806L, 156324367L,
+                1270677460L, 36713256L, 58142793L,
+                1264956540L, 586932982L, 5720920L,
+                1847306687L, 2302611995L, 21784811L,
+                843178107L, 411124038L, 175808944L,
+                1191286285L, 592653902L, 33179950L,
+                4251035049L, 4283744475L, 11222821L,
+                4262257870L, 2865790829L, 32709426L,
+                4082833212L, 2810374323L, 23248076L,
+                3273732219L, 2642581972L, 167792351L,
+                350499959L, 1069863652L, 131604501L,
+                3780684632L, 1859496740L, 217733739L,
+                3441524570L, 3808585591L, 118024429L,
+                3998418371L, 1791988937L, 67507803L,
+                1837929204L, 3691490077L, 9377483L,
+                1734106574L, 1761854236L, 30134701L,
+                211282683L, 400043365L, 11080673L,
+                2186921782L, 3424691993L, 266798084L,
+                522539965L, 1201468153L, 320638142L,
+                3559548999L, 1648436634L, 113417602L,
+                0L, 94856049L, 118194361L
+        };
+
+        HashMap<Long, Long> fertilizerToWaterMap = new HashMap<>();
+        for (int i = 0; i < soilToFertilizer.length; i = i + 3) {
+            long seed = fertilizerToWater[i];
+            long soil = fertilizerToWater[i + 1];
+            long count = fertilizerToWater[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                fertilizerToWaterMap.put(soil + j, seed + j);
+            }
+        }
+
+        long[] waterToLight = {
+                487890089L, 1253174910L, 48217379L,
+                1162866447L, 2295971038L, 331509140L,
+                3115016077L, 4085918002L, 209049294L,
+                3600618057L, 2743705059L, 694349239L,
+                3021490874L, 3712826169L, 26810261L,
+                2743705059L, 3739636430L, 3013944L,
+                3048301135L, 4019203060L, 66714942L,
+                1494375587L, 0L, 650888870L,
+                167398115L, 650888870L, 320491974L,
+                78943404L, 2207516327L, 88454711L,
+                3324065371L, 3742650374L, 276552686L,
+                881072381L, 1174877356L, 78297554L,
+                2690077973L, 2191170718L, 16345609L,
+                2746719003L, 3438054298L, 274771871L,
+                2145264457L, 1301392289L, 544813516L,
+                959369935L, 971380844L, 203496512L,
+                536107468L, 1846205805L, 344964913L,
+                0L, 2627480178L, 78943404L
+        };
+
+        HashMap<Long, Long> waterToLightMap = new HashMap<>();
+        for (int i = 0; i < soilToFertilizer.length; i = i + 3) {
+            long seed = waterToLight[i];
+            long soil = waterToLight[i + 1];
+            long count = waterToLight[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                waterToLightMap.put(soil + j, seed + j);
+            }
+        }
+
+        long[] lightToTemperature = {
+                2934276762L, 3692860946L, 134937994L,
+                2222730788L, 3468116804L, 32924074L,
+                2030910720L, 3501040878L, 191820068L,
+                2876227610L, 3450265581L, 17851223L,
+                2821863146L, 1926340324L, 54364464L,
+                2894078833L, 3827798940L, 40197929L,
+                0L, 2499885250L, 950380331L,
+                3069214756L, 1312743837L, 613596487L,
+                950380331L, 232213448L, 1080530389L,
+                2302682684L, 2382183979L, 117701271L,
+                3682811243L, 47027822L, 185185626L,
+                2255654862L, 0L, 47027822L,
+                2420383955L, 1980704788L, 401479191L
+        };
+
+        HashMap<Long, Long> lightToTemperatureMap = new HashMap<>();
+        for (int i = 0; i < soilToFertilizer.length; i = i + 3) {
+            long seed = lightToTemperature[i];
+            long soil = lightToTemperature[i + 1];
+            long count = lightToTemperature[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                lightToTemperatureMap.put(soil + j, seed + j);
+            }
+        }
+
+        long[] temperatureToHumidity = {
+                3474899002L, 2152529659L, 335631613L,
+                1227362297L, 2657517973L, 1047434675L,
+                1147289328L, 4214894327L, 80072969L,
+                3069802422L, 3704952648L, 405096580L,
+                4233143053L, 2090705416L, 61824243L,
+                3979887316L, 1837449679L, 253255737L,
+                3810530615L, 2488161272L, 169356701L,
+                1042444229L, 4110049228L, 104845099L,
+                2274796972L, 1042444229L, 718141444L,
+                2992938416L, 1760585673L, 76864006L
+        };
+
+        HashMap<Long, Long> temperatureToHumidityMap = new HashMap<>();
+        for (int i = 0; i < soilToFertilizer.length; i = i + 3) {
+            long seed = temperatureToHumidity[i];
+            long soil = temperatureToHumidity[i + 1];
+            long count = temperatureToHumidity[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                temperatureToHumidityMap.put(soil + j, seed + j);
+            }
+        }
+
+        long[] humidityToLocation = {
+                2905941546L, 1669212802L, 106379169L,
+                3490393041L, 2571512629L, 24111360L,
+                3327134512L, 896350741L, 163258529L,
+                163044169L, 321738120L, 136537257L,
+                1794114599L, 1475899779L, 31051829L,
+                1155727752L, 771777629L, 98456450L,
+                3514504401L, 1890601528L, 199093442L,
+                3241757362L, 1290456090L, 8146812L,
+                3713597843L, 2595623989L, 446677438L,
+                2865335819L, 1388663285L, 15697510L,
+                3155553665L, 2166925308L, 86203697L,
+                26879537L, 567441866L, 52236777L,
+                421556320L, 59735378L, 198122323L,
+                4160275281L, 1059609270L, 134692015L,
+                1072793086L, 2488577963L, 82934666L,
+                2006477848L, 3530988938L, 680918581L,
+                1766297705L, 1528152733L, 5360386L,
+                1405780686L, 3214887893L, 74444149L,
+                3017788788L, 1533513119L, 135699683L,
+                977736160L, 4211907519L, 83059777L,
+                1771658091L, 2466121455L, 22456508L,
+                2687396429L, 870234079L, 26116662L,
+                79116314L, 547394430L, 20047436L,
+                2773054926L, 1506951608L, 21201125L,
+                1825166428L, 3289332042L, 181311420L,
+                2713513091L, 1404360795L, 59541835L,
+                3012320715L, 1213908249L, 5468073L,
+                3249904174L, 2089694970L, 77230338L,
+                2794256051L, 1219376322L, 71079768L,
+                1601513875L, 2253129005L, 74723447L,
+                3153488471L, 769712435L, 2065194L,
+                299581426L, 41300579L, 18434799L,
+                332437267L, 458275377L, 89119053L,
+                1273791166L, 2327852452L, 131989520L,
+                1676237322L, 1298602902L, 90060383L,
+                318016225L, 26879537L, 14421042L,
+                769712435L, 3470643462L, 60345476L,
+                2881033329L, 3042301427L, 24908217L,
+                1480224835L, 2459841972L, 6279483L,
+                99163750L, 257857701L, 63880419L,
+                1060795937L, 1463902630L, 11997149L,
+                830057911L, 3067209644L, 147678249L,
+                1254184202L, 1194301285L, 19606964L,
+                1486504318L, 1775591971L, 115009557L
+        };
+
+        HashMap<Long, Long> humidityToLocationMap = new HashMap<>();
+        for (int i = 0; i < humidityToLocation.length; i = i + 3) {
+            long seed = humidityToLocation[i];
+            long soil = humidityToLocation[i + 1];
+            long count = humidityToLocation[i + 2];
+
+            for (int j = 0; j < count; j++) {
+                humidityToLocationMap.put(soil + j, seed + j);
+            }
+        }
+
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : seedToSoilMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : soilToFertilizerMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : fertilizerToWaterMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : waterToLightMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : lightToTemperatureMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : temperatureToHumidityMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < seeds.length; i++) {
+            for (Map.Entry<Long, Long> entry : humidityToLocationMap.entrySet()) {
+                if (seeds[i] == entry.getKey()) {
+                    seeds[i] = entry.getValue();
+                    break;
+                }
+            }
+        }
+
+        Arrays.sort(seeds);
+        return seeds[0];
+    }

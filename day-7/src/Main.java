@@ -12,7 +12,6 @@ public class Main {
     }
 
     public static Long part1(List<String> input){
-
         //process txt file:
         List<String> cards = new ArrayList<>();
         List<Integer> points = new ArrayList<>();

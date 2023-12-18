@@ -3,19 +3,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
+
+    // S starting direction and type must be typed manually
     static ArrayList<Tile> tiles = new ArrayList<>();
     static int startingX;
     static int startingY;
-    static int STileType = 4;
+    static int STileType = 3;
     static int lineLength;
-    static int startingDirection = 2;
+    static int startingDirection = 1;
 
     public static void main(String[] args) {
-        List<String> input = readFile("src/input.txt");
+        List<String> input = readFile("src/input2.txt");
         processFile(input);
         System.out.println(part1());
 
@@ -29,7 +32,6 @@ public class Main {
         int directionTo = startingDirection;
 
         while(steps >= 0) {
-
             if (directionTo == 1) {
                 currentY--;
             } else if (directionTo == 2) {
@@ -37,9 +39,10 @@ public class Main {
             } else if (directionTo == 3) {
                 currentY++;
             } else if (directionTo == 4) {
-                currentY--;
+                currentX--;
             }
-            Tile currentTile = tiles.get(currentY * lineLength + currentY);
+            System.out.println(lineLength);
+            Tile currentTile = tiles.get(currentY * lineLength + currentX);
 
             int tempInt = 0;
             if(directionTo == 1){
@@ -86,7 +89,9 @@ public class Main {
                     tempInt = 1;
                 }
             }
+
             directionTo = tempInt;
+
 
             steps ++ ;
             if(currentX == startingX && currentY == startingY){
@@ -106,22 +111,24 @@ public class Main {
         lineLength = input.get(0).length();
         for(int i = 0; i < input.size(); i ++){
             for(int j = 0; j < input.get(i).length(); j ++) {
-                Tile tile = new Tile(0, j, i);
-                char currentChar = input.get(i).charAt(j);
-                switch (currentChar) {
-                    case '|' -> tile.type = 1;
-                    case '-' -> tile.type = 2;
-                    case 'J' -> tile.type = 3;
-                    case 'F' -> tile.type = 4;
-                    case 'L' -> tile.type = 5;
-                    case '7' -> tile.type = 6;
-                    case 'S' -> tile.type = 0;
-                }
-                tiles.add(tile);
+                    Tile tile = new Tile(0, j, i);
+                    char currentChar = input.get(i).charAt(j);
+                    switch (currentChar) {
+                        case '|' -> tile.type = 1;
+                        case '-' -> tile.type = 2;
+                        case 'J' -> tile.type = 3;
+                        case 'F' -> tile.type = 4;
+                        case 'L' -> tile.type = 5;
+                        case '7' -> tile.type = 6;
+                        case 'S' -> tile.type = 0;
+                        case '.' -> tile.type = 7;
+                    }
+                    tiles.add(tile);
             }
         }
         for(int i = 0; i < tiles.size(); i ++){
             if(tiles.get(i).type == 0){
+                System.out.println("igen");
                 startingX = tiles.get(i).x;
                 startingY = tiles.get(i).y;
                 tiles.get(i).type = STileType;

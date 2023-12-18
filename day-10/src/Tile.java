@@ -7,6 +7,7 @@ public class Tile {
     // 4: F
     // 5: L
     // 6: 7
+    // 7: .
 
     int directionFrom = 0;
     int directionTo = 0;

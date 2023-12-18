@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d82a799-0929-46d0-a892-62da22e2765e" name="Changes" comment="day 11 part 1 done, day 10 part 2 not done yet">
+    <list default="true" id="2d82a799-0929-46d0-a892-62da22e2765e" name="Changes" comment="day 11 done">
+      <change afterPath="$PROJECT_DIR$/../day-12/day-12.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../day-12/src/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/day-11/Galaxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/day-11/Galaxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/day-11/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/day-11/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Galaxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Galaxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +33,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -54,7 +53,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702871474444</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="day 11 done">
+      <created>1702876011858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702876011858</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -70,6 +76,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="day 11 part 1 done, day 10 part 2 not done yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="day 11 part 1 done, day 10 part 2 not done yet" />
+    <MESSAGE value="day 11 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="day 11 done" />
   </component>
 </project>

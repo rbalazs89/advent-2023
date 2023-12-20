@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -10,25 +11,67 @@ public class Main {
     static ArrayList<Tile> table = new ArrayList<>();
     static int length;
     static int width;
+    static ArrayList<Integer> solutions = new ArrayList<>();
 
     public static void main(String[] args) {
         List<String> input = readFile("src/input2.txt");
-        processFile(input);
-
-        System.out.println(part1());
+        System.out.println(part1(input));
     }
 
-    public static int part1(){
-        travellingLight(0,0,"right");
+    public static int part1(List<String> input){
 
-        int solution = 0;
-        for (int i = 0; i < table.size(); i++) {
-            if(table.get(i).energized){
-                solution ++;
+        processFile(input);
+        for (int j = 0; j < width; j++) {
+            processFile(input);
+            travellingLight(j,0,"down");
+            int solution = 0;
+            for (int i = 0; i < table.size(); i++) {
+                if(table.get(i).energized){
+                    solution ++;
+                }
             }
+            solutions.add(solution);
         }
 
-        return solution;
+        for (int j = 0; j < width; j++) {
+            processFile(input);
+            travellingLight(j,length - 1,"up");
+            int solution = 0;
+            for (int i = 0; i < table.size(); i++) {
+                if(table.get(i).energized){
+                    solution ++;
+                }
+            }
+            solutions.add(solution);
+        }
+
+        for (int j = 0; j < length; j++) {
+            processFile(input);
+            travellingLight(width - 1,j,"left");
+            int solution = 0;
+            for (int i = 0; i < table.size(); i++) {
+                if(table.get(i).energized){
+                    solution ++;
+                }
+            }
+            solutions.add(solution);
+        }
+
+        for (int j = 0; j < length; j++) {
+            processFile(input);
+            travellingLight(0,j,"right");
+            int solution = 0;
+            for (int i = 0; i < table.size(); i++) {
+                if(table.get(i).energized){
+                    solution ++;
+                }
+            }
+            solutions.add(solution);
+        }
+        Collections.sort(solutions);
+        System.out.println(solutions.size());
+
+        return solutions.get(solutions.size() - 1);
     }
 
     public static void travellingLight(int startingX, int startingY, String direction){
@@ -156,6 +199,7 @@ public class Main {
     }
 
     public static void processFile(List<String> input){
+        table.clear();
         width = input.get(0).length();
         length = input.size();
         for (int i = 0; i < width; i++) {

@@ -10,7 +10,17 @@ public class Tile {
     // 3. |
     // 4. -
 
-    public Tile(){
+    //the directions of light that passed this tile:
+    //if something already passed this tile, the light travel function can stop
+    boolean left;
+    boolean right;
+    boolean up;
+    boolean down;
 
+
+    public Tile(int x, int y, String type){
+        this.x = x;
+        this.y = y;
+        this.type = type;
     }
 }

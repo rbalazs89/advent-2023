@@ -7,9 +7,19 @@ import java.util.List;
 
 public class Main {
 
+    static ArrayList<Tile> table = new ArrayList<>();
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+
+        System.out.println(part1());
     }
+
+    public static int part1(){
+
+        return 1;
+    }
+
 
     public static List<String> readFile(String file) {
         Path filePath = Paths.get(file);

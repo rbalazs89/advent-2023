@@ -14,8 +14,113 @@ public class Main {
     static ArrayList<Workflow> workflows = new ArrayList<>();
 
     public static void main(String[] args) {
-        List<String> input = readFile("src/input.txt");
+        List<String> input = readFile("src/input2.txt");
         processFile(input);
+        System.out.println(part1());
+    }
+
+    public static long part1(){
+
+        for (int k = 0; k < parts.size(); k++) {
+            Part part = parts.get(k);
+
+            workflowForOnePart:
+            while(!part.isAccepted || !part.isRejected) {;
+
+                Workflow workflow = getWorkflowByName(part.currentWorkFlowName);
+                if (workflow == null){
+                    break workflowForOnePart; // make sure to break if there is
+                }
+
+                oneWorkFlow:
+                for (int i = 0; i < workflow.rules.size(); i++) {
+                    Rule currentRule = workflow.rules.get(i);
+                    if(currentRule.ruleType == 2){
+                        if(currentRule.sendTo.equals("A")){
+                            part.isAccepted = true;
+                            part.currentWorkFlowName = "";
+                            acceptedParts.add(part);
+                            break workflowForOnePart; // needs to break completely outside of the part
+                        } if(currentRule.sendTo.equals("R")){
+                            part.isRejected = true;
+                            part.currentWorkFlowName = "";
+                            break workflowForOnePart; // needs to break completely outside of the part
+                        } else {
+                            part.currentWorkFlowName = currentRule.sendTo;
+                            break oneWorkFlow; // needs to break out of current workflow only
+                        }
+                    }
+                    if(currentRule.ruleType == 1){
+                        if(currentRule.subtype == "x"){
+                            if(part.x < currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                        if(currentRule.subtype == "m"){
+                            if(part.m < currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                        if(currentRule.subtype == "a"){
+                            if(part.a < currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                        if(currentRule.subtype == "s"){
+                            if(part.s < currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                    }
+
+                    if(currentRule.ruleType == 0){
+                        if(currentRule.subtype == "x"){
+                            if(part.x > currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                        if(currentRule.subtype == "m"){
+                            if(part.m > currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                        if(currentRule.subtype == "a"){
+                            if(part.a > currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                        if(currentRule.subtype == "s"){
+                            if(part.s > currentRule.value){
+                                part.currentWorkFlowName = currentRule.sendTo;
+                                break oneWorkFlow; // needs to break out of current workflow only
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < parts.size(); i++) {
+            if(parts.get(i).currentWorkFlowName.equals("A")){
+                parts.get(i).isAccepted = true;
+                acceptedParts.add(parts.get(i));
+            }
+        }
+
+        long result = 0;
+        for (int i = 0; i < acceptedParts.size(); i++) {
+            result = result + acceptedParts.get(i).x + acceptedParts.get(i).m + acceptedParts.get(i).a + acceptedParts.get(i).s;
+        }
+
+        return result;
+
     }
 
 
@@ -52,8 +157,6 @@ public class Main {
                 parts.add(part);
             }
         }
-
-
 
         //create arrays for rule and workflow input:
         Pattern pattern2 = Pattern.compile("\\{([^}]+)\\}");
@@ -124,6 +227,15 @@ public class Main {
             }
             workflows.add(workflow);
         }
+    }
+    public static Workflow getWorkflowByName(String s){
+        Workflow workflow;
+        for (int i = 0; i < workflows.size(); i++) {
+            if(workflows.get(i).name.equals(s)){
+                return workflows.get(i);
+            }
+        }
+        return null;
     }
 
     public static List<String> readFile(String file) {

@@ -1,0 +1,138 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+
+    static ArrayList<Part> parts = new ArrayList<>();
+    static ArrayList<Part> acceptedParts = new ArrayList<>();
+    static ArrayList<Workflow> workflows = new ArrayList<>();
+
+    public static void main(String[] args) {
+        List<String> input = readFile("src/input.txt");
+        processFile(input);
+    }
+
+
+
+    public static void processFile(List<String> input) {
+
+        List<String> partInput = new ArrayList<>();
+        List<String> instructions = new ArrayList<>();
+
+        // separate parts and instructions
+        int inputRowCutoff = 0;
+        for (int i = 0; i < input.size(); i++) {
+            if (input.get(i).length() == 0) {
+                inputRowCutoff = i;
+                break;
+            }
+            instructions.add(input.get(i));
+        }
+        for (int i = inputRowCutoff + 1; i < input.size(); i++) {
+            partInput.add(input.get(i));
+        }
+
+        // create parts:
+        Pattern pattern = Pattern.compile("\\{x=(\\d+),m=(\\d+),a=(\\d+),s=(\\d+)\\}");
+        for (String str : partInput) {
+            Matcher matcher = pattern.matcher(str);
+            if (matcher.find()) {
+                int x = Integer.parseInt(matcher.group(1));
+                int m = Integer.parseInt(matcher.group(2));
+                int a = Integer.parseInt(matcher.group(3));
+                int s = Integer.parseInt(matcher.group(4));
+                Part part = new Part(x, m, a, s);
+                part.currentWorkFlowName = "in";
+                parts.add(part);
+            }
+        }
+
+
+
+        //create arrays for rule and workflow input:
+        Pattern pattern2 = Pattern.compile("\\{([^}]+)\\}");
+
+        for (int m = 0; m < instructions.size() ; m++) {
+            String input2 = instructions.get(m);
+            Matcher matcher2 = pattern2.matcher(input2);
+
+            String outsideBrackets = "";
+            List<String[]> insideArrays = new ArrayList<>();
+
+            if (matcher2.find()) {
+                outsideBrackets = input2.substring(0, matcher2.start());
+                String insideBrackets = matcher2.group(1);
+
+                String[] elements = insideBrackets.split(",");
+
+                for (String element : elements) {
+                    String[] myElement;
+
+                    if (element.contains("<") || element.contains(">")) {
+                        myElement = new String[4];
+                        int colonIndex = element.indexOf(":");
+                        int firstSignIndex = element.indexOf("<");
+                        if (firstSignIndex == -1) {
+                            firstSignIndex = element.indexOf(">");
+                        }
+
+                        myElement[0] = element.substring(0, firstSignIndex).trim();
+                        myElement[1] = element.substring(firstSignIndex, firstSignIndex + 1).trim();
+                        myElement[2] = element.substring(firstSignIndex + 1, colonIndex).trim();
+                        myElement[3] = element.substring(colonIndex + 1).trim();
+                    } else {
+                        myElement = new String[1];
+                        myElement[0] = element.trim();
+                    }
+
+                    insideArrays.add(myElement);
+                }
+            }
+
+            //create workflow input:
+            Workflow workflow = new Workflow(outsideBrackets);
+
+            for (int i = 0; i < insideArrays.size(); i++) {
+                Rule rule = new Rule();
+
+                if(insideArrays.get(i).length == 1){
+                    rule.ruleType = 2;
+                    rule.sendTo = insideArrays.get(i)[0];
+                }
+                else{
+                    rule.sendTo = insideArrays.get(i)[3];
+                    rule.value = Integer.parseInt(insideArrays.get(i)[2]);
+                    switch (insideArrays.get(i)[0]) {
+                        case "x" -> rule.subtype = "x";
+                        case "m" -> rule.subtype = "m";
+                        case "a" -> rule.subtype = "a";
+                        case "s" -> rule.subtype = "s";
+                    }
+                    if(insideArrays.get(i)[1].equals("<")){
+                        rule.ruleType = 1;
+                    } else if (insideArrays.get(i)[1].equals(">")){
+                        rule.ruleType = 0;
+                    }
+                }
+                workflow.rules.add(rule);
+            }
+            workflows.add(workflow);
+        }
+    }
+
+    public static List<String> readFile(String file) {
+        Path filePath = Paths.get(file);
+        try {
+            return Files.readAllLines(filePath);
+        } catch (IOException e){
+            System.err.println("beep beep error");
+            return new ArrayList<>();
+        }
+    }
+}

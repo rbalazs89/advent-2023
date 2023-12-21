@@ -20,7 +20,7 @@ This repository contains my solutions for the advent of code 2023 puzzles. Some 
 | Day 15 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 16 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 17 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
-| Day 18 |                          |                         |
+| Day 18 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    |                         |
 | Day 19 |                          |                         |
 | Day 20 |                          |                         |
 | Day 21 |                          |                         |

@@ -136,8 +136,6 @@ public class Main {
                         continue;
                     }
                 }
-
-
                 if (myTile != null) {
 
                     if(myTile.type == 1) {

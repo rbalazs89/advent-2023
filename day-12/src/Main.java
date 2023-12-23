@@ -8,8 +8,8 @@ import java.util.List;
 public class Main {
     static ArrayList<Record> records = new ArrayList<>();
     public static void main(String[] args) {
-        List<String> input = readFile("src/input2.txt");
-        processFile(input);
+        List<String> input = readFile("src/input.txt");
+        processFile2(input);
         System.out.println(part1());
     }
 
@@ -46,17 +46,15 @@ public class Main {
                     }
                 }
             }
-                    /*for (Integer[] combination : combinations) {
-                for (int num : combination) {
-                    System.out.print(num + " ");
-                }
-                System.out.println();
-            }*/
-
-
         }
         return solution;
     }
+
+    public static long part2(){
+
+        return 1;
+    }
+
     public static void processFile(List<String> input){
         for (int i = 0; i < input.size(); i++) {
             Record record = new Record();
@@ -64,13 +62,34 @@ public class Main {
             String tempString = input.get(i).split(" ")[1];
             String[] numArray = tempString.split(",");
 
-            for (String num : numArray) {
+            for (int j = 0; j < numArray.length; j++) {
+                String num = numArray[j];
                 int parsedNum = Integer.parseInt(num.trim());
                 record.instructions.add(parsedNum);
             }
             records.add(record);
         }
     }
+    public static void processFile2(List<String> input){
+        records.clear();
+        for (int i = 0; i < input.size(); i++) {
+            Record record = new Record();
+            record.smudgedRecord = input.get(i).split(" ")[0];
+            record.smudgedRecord = record.smudgedRecord.repeat(5);
+            String tempString = input.get(i).split(" ")[1];
+            String[] numArray = tempString.split(",");
+
+
+            for (int j = 0; j < numArray.length * 5; j++) {
+                String num = numArray[j%numArray.length];
+                int parsedNum = Integer.parseInt(num.trim());
+                record.instructions.add(parsedNum);
+            }
+            records.add(record);
+        }
+    }
+
+
 
     public static ArrayList<Integer[]> findCombinations(int targetSum, int maxPositions) {
         ArrayList<Integer[]> solutions = new ArrayList<>();

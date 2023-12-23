@@ -19,12 +19,12 @@ This repository contains my solutions for the advent of code 2023 puzzles. Some 
 | Day 14 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done - code cleanup       |
 | Day 15 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 16 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 17 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
+| Day 17 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
 | Day 18 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 19 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                       |
 | Day 20 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
 | Day 21 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Impossible                       |
-| Day 22 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                         |                         |
-| Day 23 |                          |                         |
+| Day 22 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                |                         |
+| Day 23 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             |                         |
 | Day 24 |                          |                         |
 | Day 25 |                          |                         |

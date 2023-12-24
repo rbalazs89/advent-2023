@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -20,6 +21,8 @@ public class Main {
     public static void main(String[] args) {
         List<String> input = readFile("src/input2.txt");
         processFile(input);
+        System.out.println(part1());
+        System.out.println(part2());
     }
 
     public static void processFile(List<String> input) {
@@ -34,6 +37,8 @@ public class Main {
                     Math.min(Integer.parseInt(coordinates1[2]),Integer.parseInt(coordinates2[2])), Math.max(Integer.parseInt(coordinates1[2]),Integer.parseInt(coordinates2[2])));
             bricks.add(brick);
         }
+        //Collections.sort(bricks, (b2, b1) -> Integer.compare(b1.endingZ, b2.endingZ));
+
 
         //find out the full space where bricks are
         for (Brick brick : bricks) {
@@ -62,15 +67,18 @@ public class Main {
 
         //cubic tiles occupied or not
         cubicTilesRefresh();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             //bricks falling in place:
             fallingInPlace();
         }
+    }
+    public static int part2(){
 
+        return 1;
+    }
 
-        //now after bricks fell down, check which are safe to remove:
+    public static int part1(){
         int solution = 0;
-
 
         for (int i = 0; i < size; i++) {
             Brick currentBrick = bricks.get(i);
@@ -114,7 +122,7 @@ public class Main {
                 }
             }
         }
-        System.out.println(solution);
+        return solution;
     }
 
     public static void cubicTilesRefresh(){
@@ -147,10 +155,6 @@ public class Main {
                 insideLoop:
                 for (int j = brick.startingX; j < brick.endingX + 1; j++) {
                     for (int k = brick.startingY; k < brick.endingY + 1; k++) {
-
-                        //CubicTile tile = findTile(j, k, brick.startingZ - 1);
-
-                        //if (tile != null) {
                             if (tiles[j][k][brick.startingZ-1]) {
                                 break insideLoop;
                             }
@@ -158,10 +162,8 @@ public class Main {
                                 refreshTile(brick);
                                 restartInnerLoop = true;
                             }
-                        //}
                     }
                 }
-
                 if (restartInnerLoop) {
                     i--; // Restart the iteration for the current brick, to check if it can fall further
                 }

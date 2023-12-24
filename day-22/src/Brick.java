@@ -14,13 +14,4 @@ public class Brick {
         this.startingZ = startingZ;
         this.endingZ = endingZ;
     }
-
-    public Brick(Brick original) {
-        this.startingX = original.startingX;
-        this.endingX = original.endingX;
-        this.startingY = original.startingY;
-        this.endingY = original.endingY;
-        this.startingZ = original.startingZ;
-        this.endingZ = original.endingZ;
-    }
 }

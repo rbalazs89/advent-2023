@@ -9,7 +9,7 @@ public class Main {
     static ArrayList<Record> records = new ArrayList<>();
     public static void main(String[] args) {
         List<String> input = readFile("src/input.txt");
-        processFile2(input);
+        processFile(input);
         System.out.println(part1());
     }
 

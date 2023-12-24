@@ -24,7 +24,7 @@ This repository contains my solutions for the advent of code 2023 puzzles.
 | Day 19 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                       |
 | Day 20 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
 | Day 21 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Impossible                       |
-| Day 22 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                |                         |
+| Day 22 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) In progress, seems possible                        |
 | Day 23 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             |                         |
 | Day 24 |                          |                         |
 | Day 25 |                          |                         |

@@ -8,12 +8,15 @@ import java.util.List;
 public class Main {
     static ArrayList<Brick> bricks = new ArrayList<>();
     static ArrayList<CubicTile> tiles = new ArrayList<>();
+    //tatic int tiles[][][];
     static int smallestX = Integer.MAX_VALUE;
     static int largestX = Integer.MIN_VALUE;
     static int smallestY = Integer.MAX_VALUE;
     static int largestY = Integer.MIN_VALUE;
     static int smallestZ = Integer.MAX_VALUE;
     static int largestZ = Integer.MIN_VALUE;
+
+    static ArrayList<Brick> tempBricks = new ArrayList<>();
 
     public static void main(String[] args) {
         List<String> input = readFile("src/input3.txt");
@@ -56,21 +59,65 @@ public class Main {
             }
         }
 
-
+        //cubic tiles occupied or not
+        cubicTilesRefresh();
         for (int i = 0; i < 10; i++) {
-            //cubic tiles occupied or not
-            cubicTilesRefresh();
 
             //bricks falling in place:
             fallingInPlace();
         }
-        System.out.println();
-        for (int i = 0; i < tiles.size(); i++) {
-            if(!tiles.get(i).isOccupied){
-                System.out.println(tiles.get(i).x + " " + tiles.get(i).y + " " + tiles.get(i).z);
+
+
+        //now after bricks fell down, check which are safe to remove:
+        int solution = 0;
+        for (Brick brick : bricks) {
+            tempBricks.add(new Brick(brick));
+        }
+
+        for (int i = 0; i < tempBricks.size(); i++) {
+            int tempX1 = tempBricks.get(i).startingX;
+            int tempX2 = tempBricks.get(i).endingX;
+            int tempY1 = tempBricks.get(i).startingY;
+            int tempY2 = tempBricks.get(i).endingY;
+            int tempZ1 = tempBricks.get(i).startingZ;
+            int tempZ2 = tempBricks.get(i).endingZ;
+            if(tempX1 == tempX2 && tempY1 == tempY2){
+                for (int j = tempZ1; j < tempZ2 + 1; j++) {
+                    findTile(tempX1, tempY1, j).isOccupied = false;
+                }
+            }
+            else if(tempX1 == tempX2 && tempZ1 == tempZ2){
+                for (int j = tempY1; j < tempY2 + 1; j++) {
+                    findTile(tempX1, j, tempZ1).isOccupied = false;
+                }
+            }
+            else if(tempY1 == tempY2 && tempZ1 == tempZ2){
+                for (int j = tempX1; j < tempX2 + 1; j++) {
+                    findTile(j, tempY1, tempZ1).isOccupied = false;
+                }
+            }
+            if(isItSafeToRemove()){
+                System.out.println(i);
+                solution++;
+            }
+            if(tempX1 == tempX2 && tempY1 == tempY2){
+                for (int j = tempZ1; j < tempZ2 + 1; j++) {
+                    findTile(tempX1, tempY1, j).isOccupied = true;
+                }
+            }
+            else if(tempX1 == tempX2 && tempZ1 == tempZ2){
+                for (int j = tempY1; j < tempY2 + 1; j++) {
+                    findTile(tempX1, j, tempZ1).isOccupied = true;
+                }
+            }
+            else if(tempY1 == tempY2 && tempZ1 == tempZ2){
+                for (int j = tempX1; j < tempX2 + 1; j++) {
+                    findTile(j, tempY1, tempZ1).isOccupied = true;
+                }
             }
         }
-        System.out.println(bricks.get(6).startingZ);
+        System.out.println(solution);
+        tempBricks.clear();
     }
 
     public static void cubicTilesRefresh(){
@@ -126,6 +173,28 @@ public class Main {
             }
         }
 
+    public static boolean isItSafeToRemove(){
+        for (int i = 0; i < tempBricks.size(); i++) {
+            Brick brick = tempBricks.get(i);
+            insideLoop:
+            for (int j = brick.startingX; j < brick.endingX + 1; j++) {
+                for (int k = brick.startingY; k < brick.endingY + 1; k++) {
+                    CubicTile tile = findTile(j, k, brick.startingZ - 1);
+                    if (tile != null) {
+                        if (tile.isOccupied) {
+                            break insideLoop;
+                        }
+                        if (j == brick.endingX && k == brick.endingY) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+
     public static void refreshTile(Brick brick){
         //this method assumes the called cube will fall down, and updates
         for (int i = brick.startingX; i < brick.endingX + 1; i++) {
@@ -137,6 +206,7 @@ public class Main {
         brick.startingZ--;
         brick.endingZ--;
     }
+
 
     public static CubicTile findTile(int x, int y, int z){
         for (int i = 0; i < tiles.size(); i++) {

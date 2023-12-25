@@ -276,8 +276,7 @@ public class Main {
                 }
             }
         }
-
-        //printMe();
+        printMe();
         System.out.println("right from start: " + rightFromMiddle);
         System.out.println("left from start: " + leftFromMiddle);
         System.out.println("middle: " + 7656);
@@ -328,7 +327,7 @@ public class Main {
                 System.out.print(printTable[j][i] + " ");
             }
             System.out.println();
-        }
+        };
     }
 
     public static void processFile(List<String> input){

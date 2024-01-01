@@ -21,10 +21,10 @@ This repository contains my solutions for the advent of code 2023 puzzles.
 | Day 16 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 17 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
 | Day 18 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 19 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                       |
-| Day 20 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
-| Day 21 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                       |
-| Day 22 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) In progress, seems possible                        |
-| Day 23 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                        |
-| Day 24 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done using matlab                   |
-| Day 25 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                         |                         |
+| Day 19 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                      |
+| Day 20 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
+| Day 21 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
+| Day 22 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) In progress, seems possible  |
+| Day 23 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                      |
+| Day 24 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done using matlab         |
+| Day 25 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                |                         |

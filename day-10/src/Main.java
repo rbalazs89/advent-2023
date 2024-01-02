@@ -13,9 +13,9 @@ public class Main {
     static ArrayList<Tile> walkedTiles = new ArrayList<>();
     static int startingX;
     static int startingY;
-    static int STileType = 3;
+    static int STileType;
     static int lineLength;
-    static int startingDirection = 1;
+    static int startingDirection;
     static int width;
     static int length;
 
@@ -120,7 +120,7 @@ public class Main {
         area = area - ((fenceArea - 4)/2) + fenceArea - 1;
         area = area - fenceArea;
 
-        //another method to calculate inside area, this gaves the same result too :)
+        //another method to calculate inside area, this gives the same result too :)
         boolean inside = false;
         boolean topLeftType = false;
         boolean bottomLeftType = false;
@@ -327,12 +327,61 @@ public class Main {
                     tiles.add(tile);
             }
         }
+
         for(int i = 0; i < tiles.size(); i ++){
             if(tiles.get(i).type == 0){
-                System.out.println("processfile printme");
                 startingX = tiles.get(i).x;
                 startingY = tiles.get(i).y;
-                tiles.get(i).type = STileType;
+                boolean topPath = false;
+                boolean rightPath = false;
+                boolean leftPath = false;
+                boolean downPath = false;
+                if(tiles.get(i - width).type == 1 || tiles.get(i - width).type == 4 || tiles.get(i - width).type == 6){
+                    topPath = true;
+                }
+                if(tiles.get(i + 1).type == 2 || tiles.get(i + 1).type == 3 || tiles.get(i + 1).type == 6){
+                    rightPath = true;
+                }
+                if(tiles.get(i + width).type == 1 || tiles.get(i + width).type == 3 || tiles.get(i + width).type == 5){
+                    downPath = true;
+                }
+                if(tiles.get(i - 1).type == 2 || tiles.get(i - 1).type == 4 || tiles.get(i - 1).type == 5){
+                    leftPath = true;
+                }
+
+                if(downPath){
+                    startingDirection = 3;
+                }
+                if(topPath){
+                    startingDirection = 1;
+                }
+                if(rightPath){
+                    startingDirection = 2;
+                }
+
+                if(topPath && rightPath){
+                    tiles.get(i).type = 5;
+                }
+                if(topPath && downPath){
+                    tiles.get(i).type = 1;
+                }
+
+                if(topPath && leftPath){
+                    tiles.get(i).type = 3;
+                }
+
+                if(rightPath && downPath){
+                    tiles.get(i).type = 4;
+                }
+
+                if(rightPath && leftPath){
+                    tiles.get(i).type = 2;
+                }
+
+                if(downPath && leftPath){
+                    tiles.get(i).type = 6;
+                }
+                break;
             }
         }
     }

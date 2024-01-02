@@ -8,64 +8,22 @@ public class Main {
     static int width;
     static int length;
     static int[][] table;
-    static ArrayList<CubeRock> cubeRocks = new ArrayList<>();
-    static ArrayList<RoundRock> roundRocks = new ArrayList<>();
-
 
     public static void main(String[] args) {
         List<String> input = readFile("src/input2.txt");
+        System.out.println(part1(input));
         System.out.println(part2(input));
-        //part2(input);
     }
 
     public static int part1(List<String> input){
-        //PROCESS FILE:
-        for (int i = 0; i < input.size(); i++) {
-            for (int j = 0; j < input.get(i).length(); j++) {
-                if(input.get(i).charAt(j) == 'O'){
-                    roundRocks.add(new RoundRock(j,i));
-                } else if(input.get(i).charAt(j) == '#'){
-                    cubeRocks.add(new CubeRock(j,i));
-                }
-            }
-        }
-
-        //ROLL EVERYTHING TO NORTH:
-        for (int i = 0; i < roundRocks.size(); i++) {
-            int x = roundRocks.get(i).x;
-            int y = roundRocks.get(i).y;
-
-            ArrayList<Integer> tempList = new ArrayList<>();
-            for (int j = 0; j < roundRocks.size(); j++) {
-                if (roundRocks.get(j).x == x && roundRocks.get(j).y < y){
-                    tempList.add(roundRocks.get(j).y);
-                }
-            }
-            for (int j = 0; j < cubeRocks.size(); j++) {
-                if (cubeRocks.get(j).x == x && cubeRocks.get(j).y < y){
-                    tempList.add(cubeRocks.get(j).y);
-                }
-            }
-            Collections.sort(tempList, Collections.reverseOrder());
-            if (tempList.size() == 0){
-                roundRocks.get(i).y = 0;
-            }
-            if (tempList.size() != 0){
-                roundRocks.get(i).y = tempList.get(0) + 1;
-            }
-        }
-
-        //CALCULATE LOAD:
-        int load = 0;
-        for (int i = 0; i < roundRocks.size(); i++) {
-            load = load + length - roundRocks.get(i).y;
-        }
-        return load;
+        processFile(input);
+        rollUp2();
+        return calculateLoad();
     }
 
     public static int part2(List<String> input){
-        processFile2(input);
-
+        // Start rotation to get the repeating cycle and to see how many times in needs to be repeated
+        processFile(input);
         for (int i = 0; i < 100; i++) {
             rollUp2();
             rollLeft2();
@@ -78,22 +36,41 @@ public class Main {
             table2[i] = table[i].clone();
         }
 
-        int state1 = calculateLoad();
-        boolean addthisonce = false;
-        for (int i = 100; i < 1000000000; i++) {
+        int period = 0;
+        int repeatThisManyTimes;
 
-            if(!addthisonce){
-                i = i + 34 * 29411700;
-                addthisonce = true;
+        for (int i = 100; i < 1000; i++) {
+            rollUp2();
+            rollLeft2();
+            rollDown2();
+            rollRight2();
+            if (Arrays.deepEquals(table, table2)) {
+                period = i - 99;
+                break;
+            }
+        }
+        repeatThisManyTimes = 999999900 / period;
+        repeatThisManyTimes = repeatThisManyTimes - 1;
+
+
+        //calculate the final state:
+        processFile(input);
+        for (int i = 0; i < 100; i++) {
+            rollUp2();
+            rollLeft2();
+            rollDown2();
+            rollRight2();
+        }
+        boolean addThisOnce = false;
+        for (int i = 100; i < 1000000000; i++) {
+            if(!addThisOnce){
+                i = i + period * repeatThisManyTimes;
+                addThisOnce = true;
             }
             rollUp2();
             rollLeft2();
             rollDown2();
             rollRight2();
-            /*if (Arrays.deepEquals(table, table2)) {
-                System.out.println("printme");
-                System.out.println(i);
-            }*/
         }
         return calculateLoad();
     }
@@ -109,7 +86,7 @@ public class Main {
         }
         return load;
     }
-    public static void processFile2(List<String> input){
+    public static void processFile(List<String> input){
         width = input.get(0).length();
         length = input.size();
         table = new int[width][length];
@@ -211,133 +188,6 @@ public class Main {
             }
         }
     }
-
-    //////////////////////////////////////////////////////////////////////////////////////
-    public static void processFile(List<String> input){
-        cubeRocks.clear();
-        roundRocks.clear();
-        width = input.get(0).length();
-        length = input.size();
-        for (int i = 0; i < input.size(); i++) {
-            for (int j = 0; j < input.get(i).length(); j++) {
-                if(input.get(i).charAt(j) == 'O'){
-                    roundRocks.add(new RoundRock(j,i));
-                } else if(input.get(i).charAt(j) == '#'){
-                    cubeRocks.add(new CubeRock(j,i));
-                }
-            }
-        }
-    }
-
-    public static void rollDown(){
-        Collections.sort(roundRocks, Comparator.comparingInt(RoundRock::getY).reversed());
-        for (int i = 0; i < roundRocks.size(); i++) {
-            int x = roundRocks.get(i).x;
-            int y = roundRocks.get(i).y;
-
-            ArrayList<Integer> tempList = new ArrayList<>();
-            for (int j = 0; j < roundRocks.size(); j++) {
-                if (roundRocks.get(j).x == x && roundRocks.get(j).y > y){
-                    tempList.add(roundRocks.get(j).y);
-                }
-            }
-            for (int j = 0; j < cubeRocks.size(); j++) {
-                if (cubeRocks.get(j).x == x && cubeRocks.get(j).y > y){
-                    tempList.add(cubeRocks.get(j).y);
-                }
-            }
-            Collections.sort(tempList);
-            if (tempList.size() == 0){
-                roundRocks.get(i).y = length - 1;
-            }
-            else {
-                roundRocks.get(i).y = tempList.get(0) - 1;
-            }
-        }
-    }
-
-    public static void rollUp(){
-        Collections.sort(roundRocks, Comparator.comparingInt(RoundRock::getY));
-        for (int i = 0; i < roundRocks.size(); i++) {
-            int x = roundRocks.get(i).x;
-            int y = roundRocks.get(i).y;
-
-            int tempInt = 0;
-            boolean changed = false;
-            for (int j = 0; j < roundRocks.size(); j++) {
-                if (roundRocks.get(j).x == x && roundRocks.get(j).y < y){
-                    tempInt = Math.max(tempInt, roundRocks.get(j).y);
-                    changed = true;
-                }
-            }
-            for (int j = 0; j < cubeRocks.size(); j++) {
-                if (cubeRocks.get(j).x == x && cubeRocks.get(j).y < y){
-                    tempInt = Math.max(tempInt, cubeRocks.get(j).y);
-                    changed = true;
-                }
-            }
-            System.out.println(changed);
-
-            if(changed){
-                roundRocks.get(i).y = tempInt + 1;
-            } else roundRocks.get(i).y = 0;
-        }
-    }
-
-    public static void rollRight(){
-        Collections.sort(roundRocks, Comparator.comparingInt(RoundRock::getX).reversed());
-        for (int i = 0; i < roundRocks.size(); i++) {
-            int x = roundRocks.get(i).x;
-            int y = roundRocks.get(i).y;
-
-            ArrayList<Integer> tempList = new ArrayList<>();
-            for (int j = 0; j < roundRocks.size(); j++) {
-                if (roundRocks.get(j).y == y && roundRocks.get(j).x > x){
-                    tempList.add(roundRocks.get(j).x);
-                }
-            }
-            for (int j = 0; j < cubeRocks.size(); j++) {
-                if (cubeRocks.get(j).y == y && cubeRocks.get(j).x > x){
-                    tempList.add(cubeRocks.get(j).x);
-                }
-            }
-            Collections.sort(tempList);
-            if (tempList.size() == 0){
-                roundRocks.get(i).x = length - 1;
-            }
-            else {
-                roundRocks.get(i).x = tempList.get(0) - 1;
-            }
-        }
-    }
-
-    public static void rollLeft(){
-        Collections.sort(roundRocks, Comparator.comparingInt(RoundRock::getX));
-        for (int i = 0; i < roundRocks.size(); i++) {
-            int x = roundRocks.get(i).x;
-            int y = roundRocks.get(i).y;
-
-            ArrayList<Integer> tempList = new ArrayList<>();
-            for (int j = 0; j < roundRocks.size(); j++) {
-                if (roundRocks.get(j).y == y && roundRocks.get(j).x < x){
-                    tempList.add(roundRocks.get(j).x);
-                }
-            }
-            for (int j = 0; j < cubeRocks.size(); j++) {
-                if (cubeRocks.get(j).y == y && cubeRocks.get(j).x < x){
-                    tempList.add(cubeRocks.get(j).x);
-                }
-            }
-            Collections.sort(tempList, Collections.reverseOrder());
-            if (tempList.size() == 0){
-                roundRocks.get(i).x = 0;
-            }
-            else {
-                roundRocks.get(i).x = tempList.get(0) + 1;
-            }
-        }
-    }
-
     public static List<String> readFile(String file) {
         Path filePath = Paths.get(file);
         try {

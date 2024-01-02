@@ -12,11 +12,11 @@ This repository contains my solutions for the advent of code 2023 puzzles.
 | Day 7  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 8  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 9  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 10 | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done - code cleanup     | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
+| Day 10 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 11 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 12 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)  Hard  |
 | Day 13 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 14 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done - code cleanup       |
+| Day 14 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 15 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 16 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
 | Day 17 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |

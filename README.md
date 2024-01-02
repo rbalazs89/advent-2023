@@ -27,4 +27,4 @@ This repository contains my solutions for the advent of code 2023 puzzles.
 | Day 22 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) In progress, seems possible  |
 | Day 23 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Need graphs             | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                      |
 | Day 24 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done using matlab         |
-| Day 25 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                |                         |
+| Day 25 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Working, but too long runtime  |                         |

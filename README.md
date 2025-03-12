@@ -3,28 +3,28 @@ This repository contains my solutions for the advent of code 2023 puzzles.
 
 | Days   | Part 1                  | Part 2                 |
 | ------ | ----------------------- | ----------------------- |
-| Day 1  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                     |
-| Day 2  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                     |
-| Day 3  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 4  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 5  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done - long runtime       |
-| Day 6  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 7  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 8  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 9  | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 10 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 11 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 12 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)  Hard  |
-| Day 13 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 14 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 15 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 16 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 17 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                        |
-| Day 18 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 19 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                      |
-| Day 20 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 21 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                      |
-| Day 22 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) In progress, seems possible  |
-| Day 23 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Too hard                | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+)                       |
-| Day 24 | ![#ccffcc](https://via.placeholder.com/15/ccffcc/000000?text=+) Done                    | ![#ffffcc](https://via.placeholder.com/15/ffffcc/000000?text=+) Done using matlab         |
-| Day 25 | ![#FF7F7F](https://via.placeholder.com/15/FF7F7F/000000?text=+) Working, but too long runtime  |                         |
+| Day 1  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                     |
+| Day 2  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                     |
+| Day 3  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 4  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 5  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done - long runtime](https://img.shields.io/badge/-Done-yellow)       |
+| Day 6  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 7  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 8  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 9  | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 10 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 11 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 12 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Hard](https://img.shields.io/badge/-Hard-red)  |
+| Day 13 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 14 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 15 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 16 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 17 | ![Too hard](https://img.shields.io/badge/-Too_hard-red)                | ![Too hard](https://img.shields.io/badge/-Too_hard-red)                        |
+| Day 18 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 19 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Too hard](https://img.shields.io/badge/-Too_hard-red)                      |
+| Day 20 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 21 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done](https://img.shields.io/badge/-Done-brightgreen)                      |
+| Day 22 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![In progress](https://img.shields.io/badge/-In_progress-orange)  |
+| Day 23 | ![Too hard](https://img.shields.io/badge/-Too_hard-red)                | ![Too hard](https://img.shields.io/badge/-Too_hard-red)                       |
+| Day 24 | ![Done](https://img.shields.io/badge/-Done-brightgreen)                    | ![Done using matlab](https://img.shields.io/badge/-Done-yellow)         |
+| Day 25 | ![Working but long runtime](https://img.shields.io/badge/-Working_but_long_runtime-red)  |   |                  |
